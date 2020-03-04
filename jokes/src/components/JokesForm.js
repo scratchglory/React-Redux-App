@@ -13,18 +13,22 @@ const JokeForm = props => {
     e.preventDefault();
     // informs redux to send FETCH_DATA action to reducer
   };
+
   return (
     <>
       {props.isFetchingData ? (
         <div>***FETCHING DATA***</div>
       ) : (
-        <button onClick={handleChanges}>Click to LAUGH!</button>
+        <button onClick={handleChanges}>🤭 Click to LOL! 🤣 </button>
       )}
     </>
   );
 };
 
 const mapStateToProps = state => {
+  console.log("mSTP:", state);
+  // first, catching to see if data is being fetched
+  // jokes-state will be with JokesList
   return {
     isFetchingData: state.isFetchingData
   };

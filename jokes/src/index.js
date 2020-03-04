@@ -5,12 +5,12 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { jokesReducer as reducer } from "./reducers";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 // bridge between redux and react
 import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
+import thunk from "redux-thunk";
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

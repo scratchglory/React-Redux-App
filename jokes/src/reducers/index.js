@@ -1,6 +1,6 @@
 // What do we want our code to reduce/catch?
 // fetch_data, update_data, set_error
-import { FETCH_DATA } from "../actions";
+import { FETCH_DATA, UPDATE_DATA, SET_ERROR } from "../actions";
 
 const initialState = {
   jokes: [],
@@ -11,8 +11,8 @@ const initialState = {
 
 // when the redux system passes action through reducer, it affects our state
 export const jokesReducer = (state = initialState, action) => {
-  console.log("REDUCER:", action.payload);
-  switch (action.payload) {
+  console.log("REDUCER:", state);
+  switch (action.type) {
     case FETCH_DATA:
       return {
         ...state,
